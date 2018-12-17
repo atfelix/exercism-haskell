@@ -1,5 +1,1 @@
-resolver: lts-11.1
-packages:
-  - '.'
-extra-deps:
-  - unordered-containers-0.2.9.0
+resolver: lts-12.4

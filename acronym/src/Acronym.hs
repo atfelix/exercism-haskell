@@ -5,7 +5,7 @@ import Data.List (head)
 import Data.List.Split (condense, dropDelims, split, startsWithOneOf, whenElt)
 
 abbreviate :: String -> String
-abbreviate xs = map (toUpper . head) $ concatMap splitOnUpper (splitOnNonAlpha xs)
+abbreviate xs = map (toUpper . head) $ concatMap splitOnUpper (splitOnNonAlpha (filter (/= '\'') xs))
 
 splitOnUpper :: String -> [String]
 splitOnUpper = split (condense $ startsWithOneOf ['A'..'Z'])

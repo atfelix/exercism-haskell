@@ -4,7 +4,7 @@ import Data.Foldable     (for_)
 import Test.Hspec        (Spec, describe, it, shouldBe)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import PerfectNumbers
+import PerfectNumbers (Classification(Deficient, Perfect, Abundant), classify)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
@@ -44,10 +44,10 @@ cases = [ Case { description = "Smallest perfect number is classified correctly"
                , number      = 30
                , expected    = Just Abundant
                }
-        -- , Case { description = "Large abundant number is classified correctly"
-        --        , number      = 33550335
-        --        , expected    = Just Abundant
-        --        }
+        , Case { description = "Large abundant number is classified correctly"
+               , number      = 33550335
+               , expected    = Just Abundant
+               }
         , Case { description = "Smallest prime deficient number is classified correctly"
                , number      = 2
                , expected    = Just Deficient
@@ -60,10 +60,10 @@ cases = [ Case { description = "Smallest perfect number is classified correctly"
                , number      = 32
                , expected    = Just Deficient
                }
-        -- , Case { description = "Large deficient number is classified correctly"
-        --        , number      = 33550337
-        --        , expected    = Just Deficient
-        --        }
+        , Case { description = "Large deficient number is classified correctly"
+               , number      = 33550337
+               , expected    = Just Deficient
+               }
         , Case { description = "Edge case (no factors other than itself) is classified correctly"
                , number      = 1
                , expected    = Just Deficient

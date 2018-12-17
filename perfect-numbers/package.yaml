@@ -1,13 +1,13 @@
 name: perfect-numbers
-version: 1.1.0.2
+version: 1.1.0.4
 
 dependencies:
   - base
-  - unordered-containers
 
 library:
   exposed-modules: PerfectNumbers
   source-dirs: src
+  ghc-options: -Wall
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.

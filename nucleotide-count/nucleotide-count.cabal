@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 64daa6f3b4597081073038244dd81e348cf221b7475c17d879aee27cb7ac1c28
+-- hash: efcac18856faaea9a56c74f7f19f052d11f685c527000412138a7703fa5e0cd0
 
 name:           nucleotide-count
-version:        1.3.0.5
+version:        1.3.0.7
 build-type:     Simple
 cabal-version:  >= 1.10
 
@@ -16,6 +16,7 @@ library
       Paths_nucleotide_count
   hs-source-dirs:
       src
+  ghc-options: -Wall
   build-depends:
       base
     , containers

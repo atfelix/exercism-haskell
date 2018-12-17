@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 95d938b0278fe058127dcb44ee6aeea73ba8636b773f95e34153bd32989b4e54
+-- hash: 8cb469246a02d641050e0160da57c48f27afef4bb1f90f45e4792d6a4435038b
 
 name:           perfect-numbers
-version:        1.1.0.2
+version:        1.1.0.4
 build-type:     Simple
 cabal-version:  >= 1.10
 
@@ -16,9 +16,9 @@ library
       Paths_perfect_numbers
   hs-source-dirs:
       src
+  ghc-options: -Wall
   build-depends:
       base
-    , unordered-containers
   default-language: Haskell2010
 
 test-suite test
@@ -32,5 +32,4 @@ test-suite test
       base
     , hspec
     , perfect-numbers
-    , unordered-containers
   default-language: Haskell2010

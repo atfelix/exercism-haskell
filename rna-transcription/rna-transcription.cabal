@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e92fbd4769ff94a7c8c834a4f065419d52f5f2f979f01824cf277d7aea76dd99
+-- hash: 1aa2f3c724808a0319133098d0196db33a60654c9112555e654683952fb77073
 
 name:           rna-transcription
-version:        1.3.0.8
+version:        1.3.0.10
 build-type:     Simple
 cabal-version:  >= 1.10
 
@@ -16,6 +16,7 @@ library
       Paths_rna_transcription
   hs-source-dirs:
       src
+  ghc-options: -Wall
   build-depends:
       base
   default-language: Haskell2010

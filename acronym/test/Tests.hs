@@ -7,7 +7,7 @@ import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import Acronym (abbreviate)
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = False} specs
+main = hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = describe "abbreviate" $ for_ cases test
@@ -46,5 +46,17 @@ cases = [ Case { description = "basic"
         , Case { description = "punctuation without whitespace"
                , input       = "Complementary metal-oxide semiconductor"
                , expected    = "CMOS"
+               }
+        , Case { description = "very long abbreviation"
+               , input       = "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+               , expected    = "ROTFLSHTMDCOALM"
+               }
+        , Case { description = "consecutive delimiters"
+               , input       = "Something - I made up from thin air"
+               , expected    = "SIMUFTA"
+               }
+        , Case { description = "apostrophes"
+               , input       = "Halley's Comet"
+               , expected    = "HC"
                }
         ]

@@ -5,12 +5,14 @@ module ComplexNumbers
  real,
  imaginary,
  mul,
+ exp,
  add,
  sub,
  div,
  complex) where
 
-import Prelude hiding (div, abs)
+import Prelude hiding (div, abs, exp)
+import qualified Prelude as P
 
 -- Data definition -------------------------------------------------------------
 data Complex a = Complex { real :: a, imaginary :: a } deriving(Eq, Show)
@@ -38,3 +40,7 @@ sub z w = z `add` (complex (-1, 0) `mul` w)
 div :: Fractional a => Complex a -> Complex a -> Complex a
 z `div` w = (z `mul` conjugate w) `mul` complex (1 / denom, 0)
     where denom = real w * real w + imaginary w * imaginary w
+
+exp :: Floating a => Complex a -> Complex a
+exp (Complex re im) = Complex (e re * cos im) (e re * sin im)
+    where e = P.exp

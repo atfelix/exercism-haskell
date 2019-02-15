@@ -1,19 +1,17 @@
+{-# LANGUAGE TupleSections #-}
+
 module DNA (nucleotideCounts, Nucleotide(..)) where
 
 import Control.Monad (mapM)
+import Data.Bifunctor (bimap)
 import Data.Map (Map, fromListWith)
+import Text.Read (readEither)
 
-data Nucleotide = A | C | G | T deriving (Eq, Ord, Show)
+data Nucleotide = A | C | G | T deriving (Bounded, Enum, Eq, Ord, Read, Show)
 
-nucleotideCounts :: String -> Either String (Map Nucleotide Int)
-nucleotideCounts xs = fromListWith (+) <$> ys
-    where ys = (zs ++) <$> mapM f xs
-          zs = [(A, 0), (C, 0), (G, 0), (T, 0)]
+nucleotideCounts :: String -> Either String (Map Nucleotide Integer)
+nucleotideCounts genome = fromListWith (+) <$> genomeTuples
+    where genomeTuples = (map (,0) [minBound .. ] ++) <$> mapM eitherGenomeWithOne genome
 
-f :: Char -> Either String (Nucleotide, Int)
-f x = case x of
-    'A' -> Right (A, 1)
-    'C' -> Right (C, 1)
-    'G' -> Right (G, 1)
-    'T' -> Right (T, 1)
-    _ -> Left "Invalid DNA symbol"
+eitherGenomeWithOne :: Char -> Either String (Nucleotide, Integer)
+eitherGenomeWithOne = bimap (const "Invalid DNA symbol") (,1) . readEither . return

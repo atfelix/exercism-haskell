@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: efcac18856faaea9a56c74f7f19f052d11f685c527000412138a7703fa5e0cd0
+-- hash: c8a081715b186776c523f654661c5022a1bce0c0776579300ff4ec967de1004a
 
 name:           nucleotide-count
 version:        1.3.0.7
@@ -19,6 +19,7 @@ library
   ghc-options: -Wall
   build-depends:
       base
+    , bifunctors
     , containers
   default-language: Haskell2010
 
@@ -31,6 +32,7 @@ test-suite test
       test
   build-depends:
       base
+    , bifunctors
     , containers
     , hspec
     , nucleotide-count
